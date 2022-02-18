@@ -30,8 +30,17 @@
 
     <div class="ideas-container space-y-6 my-8">
         @foreach ($ideas as $idea)
-            <div
-                class="idea-container hover:shadow-card transition duration-150 ease-in bg-white rounded-xl flex cursor-pointer">
+            <div x-data @click="
+                    const clicked = $event.target
+                    const target = clicked.tagName.toLowerCase()
+                    const ignores = ['button', 'svg', 'path', 'a']
+
+                    if (! ignores.includes(target)) {
+                        clicked.closest('.idea-container').querySelector('.idea-link').click()
+                    }
+                "
+                class="idea-container hover:shadow-card transition duration-150 ease-in bg-white rounded-xl flex cursor-pointer"
+            >
                 <div class="hidden md:block border-r border-gray-100 px-5 py-8">
                     <div class="text-center">
                         <div class="font-semibold text-2xl">12</div>
@@ -39,8 +48,7 @@
                     </div>
 
                     <div class="mt-8">
-                        <button
-                            class="w-20 bg-gray-200 border border-gray-200 hover:border-gray-400 font-bold text-xxs uppercase rounded-xl transition duration-150 ease-in px-4 py-3">
+                        <button class="w-20 bg-gray-200 border border-gray-200 hover:border-gray-400 font-bold text-xxs uppercase rounded-xl transition duration-150 ease-in px-4 py-3">
                             Vote
                         </button>
                     </div>
@@ -54,7 +62,7 @@
                     </div>
                     <div class="w-full flex flex-col justify-between mx-2 md:mx-4">
                         <h4 class="text-xl font-semibold mt-2 md:mt-0">
-                            <a href="{{ route('idea.show', $idea) }}" class="hover:underline">{{ $idea->title }}</a>
+                            <a href="{{ route('idea.show', $idea) }}" class="idea-link hover:underline">{{ $idea->title }}</a>
                         </h4>
                         <div class="text-gray-600 mt-3 line-clamp-3">
                             {{ $idea->description }}
@@ -83,7 +91,7 @@
                                     <svg fill="currentColor" width="24" height="6">
                                         <path
                                             d="M2.97.061A2.969 2.969 0 000 3.031 2.968 2.968 0 002.97 6a2.97 2.97 0 100-5.94zm9.184 0a2.97 2.97 0 100 5.939 2.97 2.97 0 100-5.939zm8.877 0a2.97 2.97 0 10-.003 5.94A2.97 2.97 0 0021.03.06z"
-                                            style="color: rgba(163, 163, 163, .5)">
+                                            style="color: rgba(163, 163, 163, .5)"/>
                                     </svg>
                                     <ul
                                         x-cloak
