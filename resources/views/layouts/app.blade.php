@@ -55,7 +55,7 @@
             </a>
         </div>
     </header>
-    {{--<main class="container mx-auto max-w-custom flex">
+    <main class="container mx-auto max-w-custom flex">
         <div class="w-70 mr-5">
             Add idea form goes here. Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis consequatur officiis
             architecto quis similique velit suscipit eius voluptate officia, repudiandae perspiciatis maiores placeat.
@@ -89,6 +89,6 @@
                 {{ $slot }}
             </div>
         </div>
-    </main>--}}
+    </main>
 </body>
 </html>
