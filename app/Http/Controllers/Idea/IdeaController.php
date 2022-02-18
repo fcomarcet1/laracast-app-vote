@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Idea;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Idea\StoreIdeaRequest;
+use App\Http\Requests\Idea\UpdateIdeaRequest;
 use App\Models\Idea;
-use App\Http\Requests\StoreIdeaRequest;
-use App\Http\Requests\UpdateIdeaRequest;
 
 class IdeaController extends Controller
 {
@@ -31,7 +32,7 @@ class IdeaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreIdeaRequest  $request
+     * @param  \App\Http\Requests\Idea\StoreIdeaRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreIdeaRequest $request)
@@ -64,7 +65,7 @@ class IdeaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateIdeaRequest  $request
+     * @param  \App\Http\Requests\Idea\UpdateIdeaRequest  $request
      * @param  \App\Models\Idea  $idea
      * @return \Illuminate\Http\Response
      */

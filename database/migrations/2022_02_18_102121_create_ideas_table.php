@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('ideas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->string('title');
+            $table->string('slug')->nullable();
+            $table->text('description');
             $table->timestamps();
         });
     }
