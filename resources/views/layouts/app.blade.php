@@ -86,7 +86,9 @@
                 </ul>
             </nav>
             <div class="mt-8">
+                <!--- Render index.blade -->
                 {{ $slot }}
+                <!--- End Render index -->
             </div>
         </div>
     </main>
