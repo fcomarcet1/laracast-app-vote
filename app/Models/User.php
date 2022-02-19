@@ -58,24 +58,24 @@ class User extends Authenticatable
         $size = 's=200';
         $extension = '.png';
 
+        /*if (is_numeric($firstCharacter)) {
+           $integerToUse =  ord(strtolower($firstCharacter)) - 21;
+       }else {
+           $integerToUse = ord(strtolower($firstCharacter)) - 96;
+       }*/
 
-        if (is_numeric($firstCharacter)) {
-            $integerToUse =  ord(strtolower($firstCharacter)) - 21;
-        }else {
-            $integerToUse = ord(strtolower($firstCharacter)) - 96;
-        }
+        $integerToUse = is_numeric($firstCharacter)
+            ? ord(strtolower($firstCharacter)) - 21
+            : ord(strtolower($firstCharacter)) - 96;
+
         return 'https://www.gravatar.com/avatar/'
             .$hash
             .'?s=200'
             .'&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-'
             .$integerToUse
-            .'.png';
-
+            .$extension;
 
         //return $baseUrl . $hash . '?' . $size . '&' . $awsUrl . $integerToUse . $extension;
-
-
-
     }
 
 
