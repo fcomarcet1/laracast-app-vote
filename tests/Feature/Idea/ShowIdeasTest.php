@@ -7,7 +7,7 @@ use App\Models\Idea;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-// TODO: Add tests
+
 class ShowIdeasTest extends TestCase
 {
     use RefreshDatabase;
