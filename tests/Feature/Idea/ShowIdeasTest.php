@@ -7,7 +7,7 @@ use App\Models\Idea;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-
+// TODO: test for show ideas with category
 class ShowIdeasTest extends TestCase
 {
     use RefreshDatabase;
