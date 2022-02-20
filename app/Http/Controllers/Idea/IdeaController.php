@@ -18,11 +18,8 @@ class IdeaController extends Controller
             'ideas' => Idea::with('user', 'category')
                 ->simplePaginate(Idea::PAGINATION_COUNT),
         ]);*/
-
         $ideas = Idea::with('user', 'category')->simplePaginate(Idea::PAGINATION_COUNT);
         return view('idea.index', compact('ideas'));
-
-
     }
 
     /**
