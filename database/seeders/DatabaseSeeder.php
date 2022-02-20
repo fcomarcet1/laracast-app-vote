@@ -18,11 +18,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory(5)->create();
-        Category::factory()->create(['name' => 'Category 1']);
-        Category::factory()->create(['name' => 'Category 2']);
-        Category::factory()->create(['name' => 'Category 3']);
-        Category::factory()->create(['name' => 'Category 4']);
-        //Category::factory(10)->create();
+        Category::factory()->create(['name' => 'category 1']);
+        Category::factory()->create(['name' => 'category 2']);
+        Category::factory()->create(['name' => 'category 3']);
+        Category::factory()->create(['name' => 'category 4']);
+        //category::factory(10)->create();
         Idea::factory(25)->create();
     }
 }

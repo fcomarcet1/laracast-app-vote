@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Status;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Status\StoreStatusRequest;
+use App\Http\Requests\Status\UpdateStatusRequest;
 use App\Models\Status;
-use App\Http\Requests\StoreStatusRequest;
-use App\Http\Requests\UpdateStatusRequest;
 
 class StatusController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -20,8 +19,6 @@ class StatusController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -30,9 +27,6 @@ class StatusController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreStatusRequest  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(StoreStatusRequest $request)
     {
@@ -41,9 +35,6 @@ class StatusController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\Status  $status
-     * @return \Illuminate\Http\Response
      */
     public function show(Status $status)
     {
@@ -52,9 +43,6 @@ class StatusController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Status  $status
-     * @return \Illuminate\Http\Response
      */
     public function edit(Status $status)
     {
@@ -63,10 +51,6 @@ class StatusController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateStatusRequest  $request
-     * @param  \App\Models\Status  $status
-     * @return \Illuminate\Http\Response
      */
     public function update(UpdateStatusRequest $request, Status $status)
     {
@@ -75,9 +59,6 @@ class StatusController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Status  $status
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Status $status)
     {
