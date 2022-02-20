@@ -12,6 +12,7 @@ class Idea extends Model
 
     public const PAGINATION_COUNT = 10;
     protected $guarded = [];
+
     protected $fillable = [
         'title',
         'description',
@@ -26,6 +27,7 @@ class Idea extends Model
             ]
         ];
     }
+    // ********** Relationships *************************
     /**
      * Get the user that owns the idea.
      */
@@ -40,5 +42,13 @@ class Idea extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * Get the status that owns the idea.
+     */
+    public function status()
+    {
+        return $this->belongsTo(Status::class);
     }
 }

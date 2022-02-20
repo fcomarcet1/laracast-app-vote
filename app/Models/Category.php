@@ -12,6 +12,7 @@ class Category extends Model
     protected $fillable = ['name'];
 
 
+    // ********** Relationships *************************
     public function categories()
     {
         return $this->hasMany(Idea::class);
