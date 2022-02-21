@@ -117,7 +117,7 @@ class ShowIdeasTest extends TestCase
 
         // create response for check I can see first 10 ideas and don't see 11 in page 1
         $response = $this->get('/');
-        $response->assertSee($firstIdea->title);
+        $response->assertSee($elevenIdea->title);
         $response->assertDontSee($firstIdea->title);
 
         // create response for check I can see 11 in page 2 and don't see firstideas.
