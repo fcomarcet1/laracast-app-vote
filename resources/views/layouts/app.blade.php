@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Laracasts Voting</title>
+    <title>Laracasts Voting App</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
@@ -30,7 +30,6 @@
                     </form>
                 @else
                     <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
                     @endif
@@ -57,10 +56,29 @@
         >
             <div class="text-center px-6 py-2 pt-6">
                 <h3 class="font-semibold text-base">Add an idea</h3>
-                <p class="text-xs mt-4">Let us know what you would like and we'll take a look over!</p>
+                {{--<p class="text-xs mt-4">Let us know what you would like and we'll take a look over!</p>--}}
+                <p class="text-xs mt-4">
+                    @auth
+                        Let us know what you would like and we'll take a look over!
+                    @else
+                        Please login to create an idea.
+                    @endauth
+                </p>
+                @auth
+                    <livewire:create-idea />
+                @else
+                    <div class="my-6 text-center">
+                        <a href="{{ route('login') }}" class="inline-block justify-center w-1/2 h-11 text-xs bg-blue text-white font-semibold rounded-xl border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3">
+                            <span class="ml-1">Login</span>
+                        </a>
+                        <a href="{{ route('register') }}" class="inline-block justify-center w-1/2 h-11 text-xs bg-gray-200 font-semibold rounded-xl border border-gray-200 hover:border-gray-400 transition duration-150 ease-in px-6 py-3 mt-4">
+                            Sign Up
+                        </a>
+                    </div>
+                @endauth
             </div>
 
-            <form action="#" method="POST" class="space-y-4 px-4 py-6">
+            {{--<form action="#" method="POST" class="space-y-4 px-4 py-6">
                 <div>
                     <input type="text" class="w-full text-sm bg-gray-100 border-none rounded-xl placeholder-gray-900 px-4 py-2" placeholder="Your Idea">
                 </div>
@@ -92,7 +110,7 @@
                         <span class="ml-1">Submit</span>
                     </button>
                 </div>
-            </form>
+            </form>--}}
         </div>
     </div>
     <div class="w-full px-2 md:px-0 md:w-175">
