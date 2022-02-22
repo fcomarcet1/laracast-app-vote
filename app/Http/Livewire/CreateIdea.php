@@ -22,9 +22,7 @@ class CreateIdea extends Component
     public function createIdea()
     {
         if (auth()->check()){
-
             $this->validate();
-
             $idea = Idea::create([
                 'title' => $this->title,
                 'description' => $this->description,

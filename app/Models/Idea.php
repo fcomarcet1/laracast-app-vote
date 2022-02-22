@@ -51,4 +51,13 @@ class Idea extends Model
     {
         return $this->belongsTo(Status::class);
     }
+
+    /**
+     * Get votes that owns the idea.
+     */
+    public function votes()
+    {
+        return $this->belongsToMany(User::class, 'votes');
+    }
+
 }

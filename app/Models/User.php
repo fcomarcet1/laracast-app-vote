@@ -48,6 +48,11 @@ class User extends Authenticatable
         return $this->hasMany(Idea::class);
     }
 
+    public function votes()
+    {
+        return $this->belongsToMany(Idea::class, 'votes');
+    }
+
     // get avatar url for user
     // https://www.gravatar.com/avatar/5822dd3b3828e76bcc476644590696d7?s=200&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-6.png
     public function getAvatar()
