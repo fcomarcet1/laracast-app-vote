@@ -31,6 +31,7 @@ class Idea extends Model
     /**
      * Get the user that owns the idea.
      */
+    // One-to-Many: Idea-user.
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -39,6 +40,7 @@ class Idea extends Model
     /**
      * Get the category that owns the idea.
      */
+    // One-to-Many: Idea-category.
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -55,6 +57,7 @@ class Idea extends Model
     /**
      * Get votes that owns the idea.
      */
+    // Many-to-Many: Idea has many votes(unique by user_id).
     public function votes()
     {
         return $this->belongsToMany(User::class, 'votes');

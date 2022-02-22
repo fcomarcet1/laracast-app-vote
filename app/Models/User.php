@@ -43,11 +43,13 @@ class User extends Authenticatable
     ];
 
     // ********** Relationships *************************
+    // One-to-Many: User has many ideas.
     public function ideas()
     {
         return $this->hasMany(Idea::class);
     }
 
+    // Many-to-Many: User has many votes(unique by idea_id).
     public function votes()
     {
         return $this->belongsToMany(Idea::class, 'votes');
