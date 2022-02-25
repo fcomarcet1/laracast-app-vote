@@ -11,10 +11,12 @@ class Status extends Model
 
     protected $fillable = ['name', 'classes'];
 
+
     // ***************** Relationships **************************************
     public function ideas()
     {
         return $this->hasMany(Idea::class);
+
     }
 
 }

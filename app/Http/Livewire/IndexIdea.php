@@ -9,11 +9,13 @@ class IndexIdea extends Component
 {
     public Idea $idea;
     public $votesCount;
+    public $hasVoted;
 
-    public function mount(Idea $idea, $votesCount)
+    public function mount(Idea $idea, $votesCount, )
     {
         $this->idea = $idea;
         $this->votesCount = $votesCount;
+        $this->hasVoted = $idea->voted_by_user; // voted_by_user is an index used in index action for addSelect
     }
 
     public function render()

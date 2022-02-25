@@ -63,4 +63,20 @@ class Idea extends Model
         return $this->belongsToMany(User::class, 'votes');
     }
 
+    /**
+     * Check if idea is voted by user(unique vote for every idea).
+     */
+    public function isVotedByUser(?User $user): bool
+    {
+        if (!$user) {
+            return false;
+        }
+
+        return Vote::where('user_id', $user->id)
+            ->where('idea_id', $this->id)
+            ->exists();
+
+        //return $user ? $this->votes->contains($user) : false;
+    }
+
 }

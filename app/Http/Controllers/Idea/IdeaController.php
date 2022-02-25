@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Idea\StoreIdeaRequest;
 use App\Http\Requests\Idea\UpdateIdeaRequest;
 use App\Models\Idea;
+use App\Models\Vote;
 
 class IdeaController extends Controller
 {
@@ -19,6 +20,11 @@ class IdeaController extends Controller
                 ->simplePaginate(Idea::PAGINATION_COUNT),
         ]);*/
         $ideas = Idea::with('user', 'category', 'status')
+            ->addSelect([
+                'voted_by_user' => Vote::select('id')
+                    ->where('user_id', auth()->id())
+                    ->whereColumn('idea_id', 'ideas.id')
+            ])
             ->withCount('votes')
             ->orderBy('id', 'asc')
             ->simplePaginate(Idea::PAGINATION_COUNT);
