@@ -79,4 +79,26 @@ class Idea extends Model
         //return $user ? $this->votes->contains($user) : false;
     }
 
+    /**
+     * Add vote for Idea.
+     */
+    public function addVote(User $user): void
+    {
+        Vote::create([
+            'idea_id' => $this->id,
+            'user_id' => $user->id,
+        ]);
+    }
+
+    /**
+     * Remove vote for Idea.
+     */
+    public function removeVote(User $user): void
+    {
+        Vote::where('idea_id', $this->id)
+            ->where('user_id', $user->id)
+            ->first()
+            ->delete();
+    }
+
 }
