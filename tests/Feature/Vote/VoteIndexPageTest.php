@@ -2,12 +2,14 @@
 
 namespace Tests\Feature\Vote;
 
+use App\Http\Livewire\IndexIdea;
 use App\Models\Category;
 use App\Models\Idea;
 use App\Models\Status;
 use App\Models\User;
 use App\Models\Vote;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Livewire\Livewire;
 use Tests\TestCase;
 
 class VoteIndexPageTest extends TestCase
@@ -80,13 +82,12 @@ class VoteIndexPageTest extends TestCase
             'description' => 'Description for my first idea',
         ]);
 
-        Livewire::test(IdeaIndex::class, [
+        Livewire::test(IndexIdea::class, [
             'idea' => $idea,
             'votesCount' => 5,
         ])
-            ->assertSet('votesCount', 5)
-            ->assertSeeHtml('<div class="font-semibold text-2xl">5</div>')
-            ->assertSeeHtml('<div class="text-sm font-bold leading-none">5</div>');
+            ->assertSet('votesCount', 5);
+
     }
 
 }
