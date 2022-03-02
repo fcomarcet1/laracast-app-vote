@@ -39,6 +39,6 @@ class IdeaShow extends Component
 
     public function render()
     {
-        return view('livewire.show-idea');
+        return view('livewire.idea-show');
     }
 }

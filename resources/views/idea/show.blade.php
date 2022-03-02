@@ -7,10 +7,9 @@
             <span class="ml-2">All ideas</span>
         </a>
     </div>
-
-    <livewire:show-idea
+    <livewire:idea-show
         :idea="$idea"
-        :votesCount="$votesCount"
+        :votesCount="$idea->votes_count"
     />
 
     <div class="comments-container relative space-y-6 md:ml-22 pt-4 my-8 mt-1">
