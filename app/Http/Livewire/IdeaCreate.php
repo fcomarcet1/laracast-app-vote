@@ -7,7 +7,7 @@ use App\Models\Idea;
 use Illuminate\Http\Response;
 use Livewire\Component;
 
-class CreateIdea extends Component
+class IdeaCreate extends Component
 {
     public $title;
     public $description;
@@ -27,9 +27,10 @@ class CreateIdea extends Component
                 'title' => $this->title,
                 'description' => $this->description,
                 'category_id' => $this->category,
-                'user_id' => auth()->id,
+                'user_id' => auth()->user()->id,
                 'status_id' => 1,
             ]);
+            //dd($idea);
 
             // TODO: test this
             if (!$idea) {
@@ -41,14 +42,14 @@ class CreateIdea extends Component
             session()->flash('message', 'Idea created successfully');
             $this->reset();
 
-            return redirect()->route('ideas.index');
+            return redirect()->route('idea.index');
         }
         abort(Response::HTTP_FORBIDDEN);
     }
 
     public function render()
     {
-        return view('livewire.create-idea', [
+        return view('livewire.idea-create', [
             'categories' => Category::all(),
         ]);
     }

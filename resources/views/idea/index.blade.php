@@ -29,7 +29,7 @@
     </div> <!-- end filters -->
     <div class="ideas-container space-y-6 my-8">
         @foreach ($ideas as $idea)
-            <livewire:index-idea
+            <livewire:idea-index
                 :idea="$idea"
                 :votesCount="$idea->votes_count"
             />

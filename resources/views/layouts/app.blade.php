@@ -65,7 +65,7 @@
                     @endauth
                 </p>
                 @auth
-                    <livewire:create-idea />
+                    <livewire:idea-create />
                 @else
                     <div class="my-6 text-center">
                         <a href="{{ route('login') }}"

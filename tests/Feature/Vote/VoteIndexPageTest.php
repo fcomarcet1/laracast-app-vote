@@ -69,9 +69,7 @@ class VoteIndexPageTest extends TestCase
     public function votesCountShowsCorrectlyOnIndexPageLivewireComponentTest(): void
     {
         $user = User::factory()->create();
-
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-
         $statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
 
         $idea = Idea::factory()->create([

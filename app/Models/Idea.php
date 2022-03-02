@@ -16,7 +16,9 @@ class Idea extends Model
     protected $fillable = [
         'title',
         'description',
-        'user_id'
+        'user_id',
+        'category_id',
+        'status_id',
     ];
 
     public function sluggable(): array
@@ -62,6 +64,7 @@ class Idea extends Model
     {
         return $this->belongsToMany(User::class, 'votes');
     }
+
 
     /**
      * Check if idea is voted by user(unique vote for every idea).
