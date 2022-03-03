@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class IdeaShow extends Component
 {
-    public Idea $idea;
+    public $idea;
     public $votesCount;
     public $hasVoted;
 
@@ -20,7 +20,7 @@ class IdeaShow extends Component
 
     public function vote()
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return redirect(route('login'));
         }
 
@@ -29,13 +29,11 @@ class IdeaShow extends Component
             $this->votesCount--;
             $this->hasVoted = false;
         } else {
-            $this->idea->addVote(auth()->user());
+            $this->idea->vote(auth()->user());
             $this->votesCount++;
             $this->hasVoted = true;
         }
     }
-
-
 
     public function render()
     {

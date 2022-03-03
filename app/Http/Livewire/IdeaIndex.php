@@ -24,7 +24,6 @@ class IdeaIndex extends Component
         if (!auth()->check()) {
             return redirect()->route('login');
         }
-
         // TODO: refactor this
         if ($this->hasVoted) {
             $this->idea->removeVote(auth()->user());
@@ -35,7 +34,6 @@ class IdeaIndex extends Component
             $this->votesCount++;
             $this->hasVoted = true;
         }
-
     }
 
     public function render()
