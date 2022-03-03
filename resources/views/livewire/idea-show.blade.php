@@ -14,9 +14,6 @@
                 <div class="text-gray-600 mt-3">
                     {{ $idea->description }}
                 </div>
-                <div class="text-gray-600 mt-3">
-                    {{ dump($votesCount) }} votes
-                </div>
 
                 <div class="flex flex-col md:flex-row md:items-center justify-between mt-6">
                     <div class="flex items-center text-xs text-gray-400 font-semibold space-x-2">

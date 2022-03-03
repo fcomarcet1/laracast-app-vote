@@ -15,11 +15,13 @@ class IdeaController extends Controller
      */
     public function index()
     {
+        return view('idea.index');
+
         /*return view('idea.index', [
             'ideas' => Idea::with('user', 'category')
                 ->simplePaginate(Idea::PAGINATION_COUNT),
         ]);*/
-        $ideas = Idea::with('user', 'category', 'status')
+        /*$ideas = Idea::with('user', 'category', 'status')
             ->addSelect([
                 'voted_by_user' => Vote::select('id')
                     ->where('user_id', auth()->id())
@@ -27,9 +29,8 @@ class IdeaController extends Controller
             ])
             ->withCount('votes')
             ->orderBy('created_at', 'desc')
-            ->simplePaginate(Idea::PAGINATION_COUNT);
-
-        return view('idea.index', compact('ideas'));
+            ->simplePaginate(Idea::PAGINATION_COUNT);*/
+        //return view('idea.index', compact('ideas'));
     }
 
     /**
